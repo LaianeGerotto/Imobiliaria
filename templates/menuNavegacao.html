@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MENU</title>
+  <link rel="stylesheet" href="/static/form1.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-image">
+      <img src="/static/images/menu.svg">
+    </div>
+    <div class="form">
+      <form action = "{{ request.path }}" method = "post">
+        <div class="form-header">          
+          <div class="'title">
+            <h1>MENU</h1>  
+          </div>          
+        </div>        
+        <div class="input-group">
+          <div class="menu">
+            <a href="/cliente_menu">CLIENTES</a>
+          </div>
+          <div class="menu">
+            <a href="/contrato_menu">CONTRATOS</a>
+          </div>
+          <div class="menu">
+            <a href="/corretor_menu">CORRETORES</a>
+          </div>
+          <div class="menu">
+            <a href="/imovel_menu">IMÓVEIS</a>
+          </div>
+          <div class="menu">
+            <a href="/proprietario_menu">PROPRIETÁRIOS</a>
+          </div>
+          <div class="menu">
+            <a href="/logout">SAIR</a>
+          </div>
+        </div>    
+      </form>
+    </div>
+  </div>
+</body>
+</html>

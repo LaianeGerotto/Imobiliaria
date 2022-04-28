@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/form1.css">
+  <title>Clientes</title>
+</head>
+<body>    
+  <div class="container">
+    <div class="form-image">
+      <img src="/static/images/visualizar.svg">
+    </div>
+    <div class="form">
+      <form action = "{{ request.path }}" method = "post">
+        <div class="retorno">
+          <a href="/menuNavegacao">MENU</a>
+          <a href="/cliente_menu">LISTA DE CLIENTES</a>
+          <a href="/cliente_alterar/{{cliente.id}}">ALTERAR</a>
+        </div>
+        <div class="form-header">          
+          <div class="'title">
+            <h1>Informações - Cliente</h1>            
+          </div>          
+        </div>
+        <div class="input-group">
+          <div class="input-box">            
+            <label><strong>NOME COMPLETO</strong></label>
+            <p>{{cliente.nome}}</p>
+          </div>
+
+          <div class="input-box">
+            <label><strong>CPF/CNPJ</strong></label>
+            <p>{{cliente.cpf_cnpj}}</p>
+          </div>
+
+          <div class="person-inputs">
+            <div class="person-title">
+              <h6>PESSOA FISICA/JURIDICA</h6>
+                <p>{{cliente.tipo_pessoa}}</p> 
+            </div>
+          </div>
+        </div>        
+        <div class="input-group">  
+          <div class="input-box">            
+            <label><strong>ENDEREÇO</strong></label>
+            <p>{{cliente.endereco}}</p>
+          </div>
+          <div class="input-box">
+            <label><strong>CIDADE</strong></label>
+            <p>{{cliente.cidade}}</p>
+          </div>
+          <div class="input-box">
+            <label><strong>ESTADO</strong></label>
+            <p>{{cliente.estado}}</p>
+          </div>
+          <div class="input-box">
+            <label><strong>CEP</strong></label>
+            <p>{{cliente.cep}}</p>
+          </div>
+        
+        </div>
+        <div class="input-group">
+          <div class="input-box">
+            <label><strong>TELEFONE</strong></label>
+            <p>{{cliente.telefone}}</p>
+          </div>
+          <div class="input-box">
+            <label><strong>EMAIL</strong></label>
+            <p>{{cliente.email}}</p>
+          </div>
+        </div>   
+      </form>
+    </div>
+  </div>  
+</body>
+</html>

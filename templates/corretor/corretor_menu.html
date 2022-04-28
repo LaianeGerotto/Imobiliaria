@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="static/form.js"></script>
+  <title>Corretores</title>
+  <link rel="stylesheet" href="/static/form1.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-image">
+      <img src="/static/images/corretor_menu.svg">
+    </div>
+    <div class="form">
+      <form action = "{{ request.path }}" method = "post">
+        <div class="retorno">
+          <a href="/menuNavegacao">MENU</a>
+          <a href="/corretor_cadastro">NOVO CORRETOR</a>
+        </div>
+        <div class="form-header">          
+          <div class="'title">
+            <h1>Lista de Corretores</h1>  
+          </div>          
+        </div>
+        <div class="input-group">
+          <div class="input-box">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>Telefone</th>
+                  <th>Email</th>
+                  <th colspan="3">Ações</th>
+                </tr>
+              </thead>    
+              <tbody>
+                {% for corretor in corretores %}
+                <tr>
+                  <td> {{corretor.id}}</td>
+                  <td> {{corretor.nome}}</td>
+                  <td> {{corretor.telefone}}</td>
+                  <td> {{corretor.email}}</td>
+                  <td>
+                    <a href="/corretor_alterar/{{corretor.id}}">
+                      <img src="/static/images/editar.png" alt="Editar">
+                    </a>
+                  </td>
+                  <td>
+                    <a href="/corretor_visualizar/{{corretor.id}}">
+                      <img src="/static/images/informacoes.png" alt="Mais informações">
+                    </a>
+                  </td>
+                  <td>
+                    <form class="delete-form" action="/corretor_menu/{{corretor.id}}/delete" method="post" style="margin-bottom: 0;">
+                      <a href="javascript:;" onclick="alertaDeletar(event)">
+                        <img src="/static/images/delete.png" alt="Excluir">
+                      </a>
+                    </form>
+                  </td>                
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table> 
+          </div>
+        </div>               
+      </form>
+    </div>
+  </div>
+</body>
+</html>

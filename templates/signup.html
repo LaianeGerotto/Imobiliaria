@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/form1.css">
+  <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+          <img src="/static/images/novousuario.svg">
+        </div>
+        <div class="form">
+            <form action = "{{ request.path }}" method = "post">
+                <div class="form-header">          
+                    <div class="'title">
+                    <h1>CADASTRO</h1>  
+                    </div>
+                             
+                </div>  
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="">
+                            {{ messages[0] }}. Vá para <a href="{{ url_for('login') }}">Página de Login</a>.
+                        </div>
+                    {% endif %}
+                    {% endwith %}
+            <!--     
+            <form method="POST" action="/signup">
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="text" name="nome" placeholder="Nome" autofocus="">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="password" name="senha" placeholder="senha">
+                    </div>
+                </div>
+
+                <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
+            </form>
+            -->
+                    <form action="/signup" method="post">                        
+                        <div class="input-group">
+                            <div class="input-box">
+                                <p>Nome: <input  type="text" name="nome"autofocus=""></p>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-box">
+                                <p>Email: <input type="email" name="email" autofocus=""></p>
+                            </div>
+                        </div>
+                                                
+                        <div class="input-group">
+                            <div class="input-box">
+                                <p>Senha: <input type="password" name="senha"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="continue-button">
+                            <button class="botao" type="submit" value="Cadastrar">CADASTRAR</button>
+                        </div>
+                        <div class="botao-login-cadastro">
+                            <a href="/login">RETORNAR</a>
+                        </div>
+                        
+                    </form>
+                </div>
+            </form>
+        </div>    
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dados do Contrato</title>
+  <link rel="stylesheet" href="/static/form1.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-image">
+      <img src="/static/images/contrato_visualizar.svg">
+    </div>
+    <div class="form">
+      <form action = "{{ request.path }}" method = "post">
+        <div class="retorno">
+          <a href="/menuNavegacao">MENU</a>
+          <a href="/contrato_menu">LISTA DE CONTRATOS</a>
+          <a href="/contrato_alterar/{{contrato.id}}">ALTERAR</a>
+        </div>
+        <div class="form-header">          
+          <div class="'title">
+            <h1>Informações - Contrato</h1>  
+          </div>          
+        </div>
+        <div class="input-group">
+          <div class="input-box">            
+              <label><strong>INÍCIO DO CONTRATO</strong></label>
+              <p>{{contrato.inicio_contrato.strftime('%d/%m/%Y')}}</p>
+          </div>
+          <div class="input-box"> 
+              <label><strong>TÉRMINO DO CONTRATO</strong></label>
+              <p>{{contrato.termino_contrato.strftime('%d/%m/%Y')}}</p>            
+          </div> 
+          <div class="input-box">            
+            <label><strong>VALOR</strong></label>
+            <p>R$ {{contrato.valor}}</p>
+          </div>   
+          <div class="input-box">
+            <label><strong>CLIENTE</strong></label>
+            <p>{{contrato.cliente.nome}}</p>
+          </div>
+          <div class="input-box">
+            <label><strong>CORRETOR RESPONSÁVEL</strong></label>
+            <p>{{contrato.corretor.nome}}</p>
+          </div>
+          <div class="input-box">
+            <label><strong>PROPRIETÁRIO</strong></label>
+            <p>{{contrato.imovel.proprietario.nome}}</p>
+          </div>
+          <div class="input-box">
+            <label><strong>IMÓVEL</strong></label>
+            <p>ID:{{contrato.id_imovel}}</p>
+          </div>
+          <div class="input-box">
+            <label><strong>TIPO DO IMÓVEL</strong></label>
+            <p>{{contrato.imovel.tipo_imovel}}</p>
+          </div>           
+          <div class="input-box">
+            <label><strong>ENDEREÇO IMÓVEL</strong></label>
+            <p>{{contrato.imovel.endereco}}, {{contrato.imovel.cidade}}/{{contrato.imovel.estado}}, CEP: {{contrato.imovel.cep}}</p>
+          </div>          
+          <div class="input-box-contrato">            
+            <a><strong>CONTRATO DE LOCAÇÃO</strong><a><p>At vero <label><strong>CLIENTE: {{contrato.cliente.nome}}</strong></label> eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime <label><strong>PROPRIETÁRIO: {{contrato.imovel.proprietario.nome}}</strong></label> placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et <label><strong>IMÓVEL: {{contrato.imovel.endereco}}, {{contrato.imovel.cidade}}/{{contrato.imovel.estado}}, CEP: {{contrato.imovel.cep}}</strong><label></label>molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat oluptatibus maiores alias consequatur aut pe <label><strong>CORRETOR: {{contrato.corretor.nome}}</strong></label>.</p>
+          </div>          
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dados Imóveis</title>
+  <link rel="stylesheet" href="/static/form1.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-image">
+      <img src="/static/images/imovel_visualizar.svg">
+    </div>
+    <div class="form">
+      <form action = "{{ request.path }}" method = "post">
+        <div class="retorno">
+          <a href="/menuNavegacao">MENU</a>
+          <a href="/imovel_menu">LISTA DE IMÓVEIS</a>
+          <a href="/imovel_alterar/{{imovel.id}}">ALTERAR</a>
+        </div>
+        <div class="form-header">          
+          <div class="'title">
+            <h1>Informações - Imóvel</h1>            
+          </div>          
+        </div>
+        <div class="input-group">
+          <div class="input-box">            
+            <label><strong>ENDEREÇO</strong></label>
+            <p>{{imovel.endereco}}</p>
+          </div>
+          <div class="input-box"> 
+            <label><strong>CIDADE</strong></label>
+            <p>{{imovel.cidade}}</p>           
+          </div>
+          <div class="input-box">   
+            <label><strong>ESTADO</strong></label>
+            <p>{{imovel.estado}}</p>
+          </div>
+          <div class="input-box"> 
+            <label><strong>CEP</strong></label>
+            <p>{{imovel.cep}}</p>
+          </div>
+          <div class="input-box">
+            <label><strong>NOME DO PROPRIETÁRIO</strong></label>
+            <p>{{imovel.proprietario.nome}}</p> 
+              {% for proprietario in proprietarios %}
+                {% if proprietario.id == imovel.id_proprietario %}
+                  <option selected value="{{proprietario.id}}">{{ proprietario.nome }}</option>
+                {% else %}
+                  <option  value="{{proprietario.id}}">{{ proprietario.nome }}</option>
+                {% endif %}
+              {% endfor %} 
+          </div>
+          <div class="person-inputs">
+            <div class="person-title">
+              <h6>TIPO DO IMÓVEL</h6>             
+                  <p>{{imovel.tipo_imovel}}</p>
+            </div> 
+          </div>
+          <div class="input-box">
+            <label><strong>DESCRIÇÃO DO IMÓVEL</strong></label>
+            <p>{{imovel.descricao_imovel}}</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

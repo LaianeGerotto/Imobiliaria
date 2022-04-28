@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap');
+
+*{
+  padding: 0;
+  margin: 1px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  
+}
+
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1c318766;
+}
+
+
+.container {
+  width: 90%;
+  height: 95vh;
+  display: flex;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .212);
+}
+
+.container h1 {
+  font-size: 3.2em;
+}
+
+.form-image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #23355A;
+  padding: 1rem;
+}
+
+.form-image img{
+  width: 31rem;
+  filter: drop-shadow(1px 1px 1px rgba(245, 241, 241, 0.644));
+  
+}
+
+
+.form {
+  width: 50%;
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 3rem;
+}
+
+.form-header{
+  
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.retorno{
+  display:grid;
+  align-items: stretch;
+  justify-content: end;
+  align-items: baseline;
+  justify-items: stretch;
+}
+
+.retorno a{
+  border: none;
+  background-color: #02BDB2;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.93rem;
+  color: #fff;
+  text-align: center;
+}
+
+.retorno a:hover{
+  background-color: #5753a5 ;
+}
+
+.menu{
+  display: grid;
+  align-items: center;
+}
+
+.menu a{
+  border: none;
+  background-color: #02BDB2;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;  
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.93rem;
+  color: #fff;
+}
+
+.menu a:hover{
+  background-color: #5753a5 ;
+}
+
+
+td img {
+  width: 1.5rem;
+}
+
+
+.input-group button h2{
+  font-weight: 500;
+  color: #fff;
+}
+
+
+
+.form-header h1::after{
+  content: '';
+  display: block;
+  width: 5rem;
+  height: 0.3rem;
+  background-color: #0b3996;
+  margin: 0 auto;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.input-group, .person-group{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.1rem;
+}
+
+.input-box input, .input-box select {
+  margin: 0.6rem 0;
+  padding: 0.8rem 2.0rem;
+  border:none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 6px 6px #0000001c;
+  font-size: 16px;
+}
+
+.input-box textarea {
+  margin: 0.6rem 0px;
+  border:none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 6px 6px #0000001c;
+  font-size: 20px;
+  width: 816px;
+  height: 86px;
+}
+
+
+.input-box input:hover, .input-box textarea:hover{
+  background-color: #eeeeee79;
+}
+
+
+
+.input-box input:focus-visible{
+  outline: 1px solid #6c63ff;
+}
+
+.input-box textarea:focus-visible{
+  outline: 1px solid #6c63ff;
+}
+
+.input-box label, .person-title, h6{
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000000c0;
+  width: 300px;
+}
+
+.input-box input::placeholder{
+  color: #000000be;
+}
+
+.input-box-contrato a{
+  text-align: justify;
+}
+
+.person-group{
+  display: flex;
+  justify-content:flex-start;
+  margin-top: 0.62rem;
+  padding: 0 0.1rem;
+
+}
+
+.person-input{
+  display: flex;
+  align-items: center;
+}
+
+.person-input input{
+  margin-right: 0.1rem; /*espacamento da palavra e do radio */
+}
+
+.person-input label{
+  font-size: 0.90rem;
+  font-weight:600;
+  color: #000000c0;
+}
+
+.continue-button button{
+  width: 100%;
+  margin-top: 0rem;
+  border: none;
+  background-color: #02BDB2;
+  padding: 0.62rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 0.93rem;
+  font-weight: 500;
+}
+
+.continue-button button:hover{
+  background-color: #5753a5;
+}
+
+.botao-login-cadastro {
+  width: 100%;
+  margin-top: 0rem;
+  border: none;
+  background-color: #02BDB2;
+  padding: 0.62rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  
+  
+  
+}
+
+.botao-login-cadastro a{
+  color: #fff;
+  font-size: 0.93rem;
+  font-weight: 500;
+  text-decoration: none
+  
+}
+
+.botao-login-cadastro:hover{
+  background-color: #5753a5;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 0.5px  rgba(0, 0, 0, 0.377);
+  border-style: solid;
+}
+
+th, td{
+  padding: 3px;
+  text-align: center;
+  width: 99px;
+}
+
+th{
+  font-weight: bold;
+  font-size: 16px;  
+}
+
+td{
+  font-size: 14px;  
+}
+  
+tr.hover:hover:nth-child(1n + 1) {
+  background-color: #09024263;
+    
+}
+  
+
+.table-list {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+
+/* Responsividade */
+@media screen and (max-width:1330px) {
+  .form-image{
+    display: none;
+  }
+  .container{
+    width: 50%;
+  }
+  .form{
+    width: 100%;
+  }  
+}
+
+/* Responsividade Tablet */
+@media screen and (max-width: 769px) {
+  .container{
+    width: 70%;
+  }
+
+  .form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10rem 0rem;
+    font-size: 12px;
+  }
+
+  .menu{
+    display:flex;
+    align-items:center;
+  }
+  
+  .menu button {
+    background-color: #0f144dd7;
+    padding: 0.1rem 1.0rem;
+    border-radius: 8px;
+  }
+  .menu button a {
+    font-size: 12px; 
+  }
+  
+  .input-box textarea {
+    margin: 0.8rem 0px;
+    border:none;
+    border-radius: 4px;
+    box-shadow: 1px 1px 6px 6px #0000001c;
+    font-size: 25px;
+    width: 100%;
+    height: 86px;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table th, table td {
+    border: 0.5px  rgba(0, 0, 0, 0.377);
+    border-style: solid;
+    width: 100%;
+    overflow-y: scroll;
+    font-size: 10px;      
+  }
+ 
+}
+
+@media screen and (max-width: 600px) {
+  .container{
+    width: 90%;
+    height:max-content;
+  }
+  .input-group {
+    flex-direction: column;
+    overflow-y: scroll;
+    flex-wrap: nowrap;
+    max-height: 5rem;
+    padding-right: 5rem;
+  }
+  .person-inputs{
+    margin-top: 2rem;
+  }
+  .person-group{
+    flex-direction: column;
+  }
+  .person-input{
+    margin-top:0.5rem ;
+  }
+  .form-header {
+    margin-top: 3rem;
+  }
+
+  .menu{
+    display: grid;
+    align-items: center;
+  }
+}
+
+/* Responsividade CELULAR */
+@media screen and (max-width: 426px) {
+  .container{
+    width: 100%;
+    height:max-content
+  }
+
+  .form {
+    width: 100%;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 4rem;
+    font-size: 12px;
+  }
+  .input-group{
+    flex-direction: column;
+    overflow-y: scroll;
+    flex-wrap: nowrap;
+    max-height: 15rem;
+    padding-right: 0.2rem;
+  }
+
+  .retorno button{
+    background-color: #0f144dd7;
+    padding: 0.1rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;  
+  }
+
+  .container h1 {
+    font-size: 1.8em;
+  }
+
+  .continue-button button{
+    width: 98%;
+    margin-top: 1rem;
+    border: none;
+    background-color: #0f144dd7;
+    padding: 0.62rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .input-box input, .input-box select {
+    margin: 0.8rem 0;
+    padding: 0.8rem 0.5rem;
+    border:none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px 1px #0000001c;
+    font-size: 12px;
+  }
+
+  .input-box label, .person-group, .person-title h6{
+    font-size: 12px;
+    
+  }
+    .person-input label{
+    font-size: 10px;
+    font-weight:600;
+    
+  }
+
+
+  table, th, td {
+    border: 0.5px  rgba(0, 0, 0, 0.377);
+    border-style:double;
+    width: auto;
+    overflow-y: scroll;
+    font-size: 7px;      
+  }
+
+.menu{
+  display: grid;
+  align-items: center;
+}
+  .menu button {
+    border: none;
+    background-color: #0f144dd7;
+    padding: 0.2rem 1rem;
+    border-radius: 8px;
+  }
+  .menu button a {
+    font-size: 20px; 
+  }
+  
+  .input-box textarea {
+    margin: 0.8rem 0px;
+    border:none;
+    border-radius: 4px;
+    box-shadow: 1px 1px 6px 6px #0000001c;
+    font-size: 10px;
+    width: 100%;
+    height: 86px;
+  }
+}

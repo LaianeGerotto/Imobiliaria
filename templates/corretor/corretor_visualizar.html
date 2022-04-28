@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/form1.css">
+  <title>Dados Corretores</title>
+</head>
+<body>    
+  <div class="container">
+    <div class="form-image">
+      <img src="/static/images/corretor_visualizar.svg">
+    </div>
+    <div class="form">
+      <form action = "{{ request.path }}" method = "post">
+        <div class="retorno">
+          <a href="/menuNavegacao">MENU</a>
+          <a href="/corretor_menu">LISTA DE CORRETORES</a>
+          <a href="/corretor_alterar/{{corretor.id}}">ALTERAR</a>
+        </div>
+        <div class="form-header">          
+          <div class="'title">
+            <h1>Informações - Corretor</h1>            
+          </div>          
+        </div>
+        <div class="input-group">
+          <div class="input-box">            
+            <label><strong>NOME COMPLETO</strong></label>
+            <p>{{corretor.nome}}</p><br>
+          </div>
+          <div class="input-box">
+            <label><strong>CPF/CNPJ</strong></label>
+            <p>{{corretor.cpf_cnpj}}</p>
+          </div>
+          <div class="person-inputs">
+            <div class="person-title">
+              <h6>PESSOA FISICA/JURIDICA</h6>
+                <p>{{corretor.tipo_pessoa}}</p> 
+            </div>
+          </div>            
+          <div class="input-box">
+            <label><strong>TELEFONE</strong></label>
+            <p>{{corretor.telefone}}</p>
+          </div>
+          <div class="input-box">
+            <label><strong>EMAIL</strong></label>
+            <p>{{corretor.email}}</p>
+          </div>  
+        </div>      
+      </form>
+    </div>
+  </div>  
+</body>
+</html>

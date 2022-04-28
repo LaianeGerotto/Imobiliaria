@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alteração de Contrato</title>
+  <link rel="stylesheet" href="/static/form1.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-image">
+      <img src="/static/images/contrato_alterar.svg">
+    </div>
+    <div class="form">
+      <form action = "{{ request.path }}" method = "post">
+        <div class="retorno">
+          <a href="/menuNavegacao">MENU</a>
+          <a href="/contrato_menu">LISTA DE CONTRATOS</a>
+        </div>
+        <div class="form-header">          
+          <div class="'title">
+            <h1>Alterar Contrato</h1>  
+          </div>          
+        </div>
+        <div class="input-box">
+          <h4>Preencha os campos abaixo:</h4>
+        </div>
+        <div class="input-group">
+          <div class="input-box">            
+              <label><strong>INÍCIO DO CONTRATO</strong></label>
+              <input type="date" name="inicio_contrato" value="{{contrato.inicio_contrato}}" required/><br>
+          </div>
+          <div class="input-box"> 
+              <label><strong>TÉRMINO DO CONTRATO</strong></label>
+              <input type="date" name="termino_contrato" value="{{contrato.termino_contrato}}" required/><br>            
+          </div>        
+          <div class="input-box">            
+            <label><strong>VALOR</strong></label>
+            <input type="number" name="valor" value="{{contrato.valor}}" required/><br>
+          </div>    
+          <div class="input-box">
+            <label><strong>CLIENTE</strong></label>
+            <select name ="id_cliente" value="{{contrato.id_cliente}}" required>
+              <option value=""></option>  
+              {% for cliente in clientes %}
+                {% if cliente.id == contrato.id_cliente %}
+                  <option selected value="{{cliente.id}}">{{ cliente.nome }}</option>
+                {% else %}
+                  <option selected value="{{cliente.id}}">{{ cliente.nome }}</option>
+                {% endif %}
+              {% endfor %}              
+            </select>
+          </div>  
+          <div class="input-box">
+            <label><strong>CORRETOR RESPONSÁVEL</strong></label>
+            <select name ="id_corretor" value="{{contrato.id_corretor}}" required>
+              <option value=""></option>  
+              {% for corretor in corretores %}
+                {% if corretor.id == contrato.id_cliente %}
+                  <option selected value="{{corretor.id}}">{{ corretor.nome }}</option>
+                {% else %}
+                  <option selected value="{{corretor.id}}">{{ corretor.nome }}</option>
+                {% endif %}
+              {% endfor %}              
+            </select>
+          </div>
+          <div class="input-box">
+            <label><strong>IMÓVEL/PROPRIETÁRIO</strong></label>
+            <select name ="id_imovel"  required>
+              <option value=""></option>  
+              {% for imovel in imoveis %}
+                {% if imovel.id == contrato.id_imovel %}
+                  <option selected value="{{imovel.id}}">{{ imovel }}</option>
+                {% else %}
+                  <option value="{{imovel.id}}">{{ imovel }}</option>
+                {% endif %}
+              {% endfor %}              
+            </select>
+          </div>           
+        </div>
+        <div class="continue-button">
+            <button class="botao" type="submit" value="Cadastrar">Alterar</button>
+        </div>        
+      </form>
+    </div>
+  </div>
+</body>
+</html>

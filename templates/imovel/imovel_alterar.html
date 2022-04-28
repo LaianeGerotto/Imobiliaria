@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alteração de Imóveis</title>
+  <link rel="stylesheet" href="/static/form1.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-image">
+      <img src="/static/images/imovel_alterar.svg">
+    </div>
+    <div class="form">
+      <form action = "{{ request.path }}" method = "post">
+        <div class="retorno">
+          <a href="/menuNavegacao">MENU</a>
+          <a href="/imovel_menu">LISTA DE IMÓVEIS</a>
+        </div>
+        <div class="form-header">          
+          <div class="'title">
+            <h1>Alterar Imóvel</h1>            
+          </div>          
+        </div>
+        <div class="input-box">
+          <h4>Preencha os campos abaixo:</h4>
+        </div>
+        <div class="input-group">
+          <div class="input-box">            
+            <label><strong>ENDEREÇO</strong></label>
+            <input type="text" name="endereco" value="{{imovel.endereco}}" required/><br>
+          </div>
+          <div class="input-box"> 
+            <label><strong>CIDADE</strong></label>
+            <input type="text" name="cidade" value="{{imovel.cidade}}" required/><br>            
+          </div>
+          <div class="input-box">   
+            <label><strong>ESTADO</strong></label>
+            <input type="text" name="estado" value="{{imovel.estado}}" required/><br>
+          </div>
+          <div class="input-box"> 
+            <label><strong>CEP</strong></label>
+            <input type="text" name="cep" value="{{imovel.cep}}"required/><br>
+          </div>
+          <div class="input-box">
+            <label><strong>NOME DO PROPRIETARIO</strong></label>
+            <select name ="id_proprietario" value="{{imovel.proprietario.nome}}" required>
+              <option value=""></option>  
+              {% for proprietario in proprietarios %}
+                {% if proprietario.id == imovel.id_proprietario %}
+                  <option selected value="{{proprietario.id}}">{{ proprietario.nome }}</option>
+                {% else %}
+                  <option  value="{{proprietario.id}}">{{ proprietario.nome }}</option>
+                {% endif %}
+              {% endfor %}              
+            </select>
+          </div>
+          <div class="person-inputs">
+            <div class="person-title">
+              <h6>TIPO DO IMÓVEL</h6> 
+            </div>
+            <div class="person-group">
+              <div class="person-input"> 
+                {% if imovel.tipo_imovel == "Residencial" %}
+                  <input type="radio" name ="tipo_imovel" value="Residencial" checked required>
+                {% else %}
+                  <input type="radio" name ="tipo_imovel" value="Residencial" required>
+                {% endif %}
+                <label for="none">Residencial</label>
+              </div>
+              <div class="person-input">           
+                {% if imovel.tipo_imovel == "Comercial" %}
+                  <input type="radio" name ="tipo_imovel" value="Comercial" checked required>
+                {% else %}
+                  <input type="radio" name ="tipo_imovel" value="Comercial" required>
+                {% endif %}
+                <label for="none">Comercial</label>
+              </div>
+            </div> 
+          </div>
+          <div class="input-box">
+            <label><strong>DESCRIÇÃO DO IMÓVEL</strong></label>
+            <textarea type="text" name ="descricao_imovel" required>{{imovel.descricao_imovel}}</textarea>
+          </div>
+        </div>
+        <div class="continue-button">
+          <button class="botao" type="submit" value="Cadastrar">Alterar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

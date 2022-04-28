@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/form1.css">
+  <title>Cadastro de Contrato</title>
+</head>
+<body>    
+  <div class="container">
+    <div class="form-image">
+      <img src="/static/images/contrato_cadastro.svg">
+    </div>
+    <div class="form">
+      <form action = "{{ request.path }}" method = "post">
+        <div class="retorno">
+          <a href="/menuNavegacao">MENU</a>
+          <a href="/contrato_menu">LISTA DE CONTRATOS</a>
+        </div>
+        <div class="form-header">          
+          <div class="'title">
+            <h1>Novo Contrato</h1>            
+          </div>          
+        </div>
+        <div class="input-box">
+          <h4>Preencha os campos abaixo:</h4>
+        </div>
+        <div class="input-group">
+          <div class="input-box">            
+            <label><strong>INÍCIO DO CONTRATO</strong></label>
+            <input type="date" name="inicio_contrato" required format='%d%m%Y' /><br>
+          </div>
+          <div class="input-box"> 
+            <label><strong>TÉRMINO DO CONTRATO</strong></label>
+            <input type="date" name="termino_contrato" required/><br>            
+          </div>         
+          <div class="input-box">            
+            <label><strong>VALOR</strong></label>
+            <input type="number" name="valor" required/><br>
+          </div>        
+          <div class="input-box">
+            <label><strong>CLIENTE</strong></label>
+            <select name ="id_cliente" required> 
+              <option value=""></option>
+              {% for cliente in clientes %}
+                <option value="{{cliente.id}}">{{ cliente.nome }}</option>
+              {% endfor %}              
+            </select>
+          </div>  
+          <div class="input-box">
+            <label><strong>CORRETOR RESPONSÁVEL</strong></label>
+            <select name ="id_corretor" required>
+              <option value=""></option> 
+              {% for corretor in corretores %}
+                <option value="{{corretor.id}}">{{ corretor.nome }}</option>
+              {% endfor %}              
+            </select>
+          </div>
+          <div class="input-box">
+            <label><strong>IMÓVEL</strong></label>
+            <select name ="id_imovel" required>
+              <option value=""></option> <!--Deixa a primeira opção em branco-->
+              {% for imovel in imoveis %}
+                <option value="{{imovel.id}}">{{ imovel }}</option>
+              {% endfor %}              
+            </select>
+          </div>           
+        </div>        
+        <div class="continue-button">
+          <button class="botao" type="submit" value="Cadastrar">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>  
+</body>
+</html>

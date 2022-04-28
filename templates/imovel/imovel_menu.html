@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="static/form.js"></script>
+  <title>Imóveis</title>
+  <link rel="stylesheet" href="/static/form1.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-image">
+      <img src="/static/images/imovel_menu.svg">
+    </div>
+    <div class="form">
+      <form action = "{{ request.path }}" method = "post">
+        <div class="retorno">
+          <a href="/menuNavegacao">MENU</a>
+          <a href="/imovel_cadastro">NOVO IMÓVEL</a>
+        </div>
+        <div class="form-header">          
+          <div class="'title">
+            <h1>Lista de Imóveis</h1>  
+          </div>          
+        </div>
+        <div class="input-group">
+          <div class="input-box">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tipo de Imóvel</th>
+                  <th>Proprietário</th>
+                  <th colspan="3">Ações</th>
+                 </tr>
+               </tr>
+              </thead>    
+              <tbody>
+                {% for imovel in imoveis %}
+                <tr>
+                  <td> {{imovel.id}}</td>
+                  <td> {{imovel.tipo_imovel}}</td>
+                  <td> {{imovel.proprietario.nome}}</td>
+                  <td> 
+                    <a href="/imovel_alterar/{{imovel.id}}">
+                      <img src="/static/images/editar.png" alt="Editar">
+                    </a>
+                  </td>
+                  <td> 
+                    <a href="/imovel_visualizar/{{imovel.id}}">
+                      <img src="/static/images/informacoes.png" alt="Mais informações">
+                    </a>
+                  </td>
+                  <td>
+                    <form class="delete-form" action="/imovel_menu/{{imovel.id}}/delete" method="post" style="margin-bottom: 0;">
+                      <a href="javascript:;" onclick="alertaDeletar(event)">
+                        <img src="/static/images/delete.png" alt="Excluir"> 
+                      </a>
+                    </form>
+                  </td>                
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>     
+      </form>
+    </div>
+  </div>
+</body>
+</html>
